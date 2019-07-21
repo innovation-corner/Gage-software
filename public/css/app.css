@@ -16478,3 +16478,8 @@ a.text-dark:focus {
   }
 }
 
+.router-link-exact-active {
+  color: #fff;
+  background-color: #3490dc;
+}
+
