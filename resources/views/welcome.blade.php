@@ -80,8 +80,9 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    {{ config('app.name') }}
+
+                <div>
+                    <img src="{{ url('img/logo.png') }}" >
                 </div>
 
                 <a href="{{route('api_documentation')}}"><code> { -- }</code></a>
