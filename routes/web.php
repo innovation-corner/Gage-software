@@ -11,9 +11,19 @@
 |
 */
 
+use App\Http\Resources\User as UserResource;
+
+Route::get('/user', function () {
+    return new UserResource(Auth::user());
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/swagger', function () {
+})->name('api_documentation');
 
 Auth::routes();
 
