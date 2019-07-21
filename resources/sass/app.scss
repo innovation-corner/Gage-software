@@ -4,6 +4,11 @@
 // Variables
 @import 'variables';
 
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-@import '~admin-lte/dist/css/AdminLTE.css';
+@import '~admin-lte/dist/css/adminlte.min.css';
+
