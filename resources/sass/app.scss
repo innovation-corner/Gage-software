@@ -12,3 +12,9 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~admin-lte/dist/css/adminlte.min.css';
 
+
+.router-link-exact-active{
+    color: $white;
+    background-color: $blue;
+}
+

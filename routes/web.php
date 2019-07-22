@@ -11,10 +11,31 @@
 |
 */
 
+use App\Http\Resources\User as UserResource;
+
+Route::get('/user', function () {
+    return new UserResource(Auth::user());
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/swagger', function () {
+})->name('api_documentation');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// temp redirect on logged
+
+Route::get('/home', function () {
+    return redirect()->to('/admin');
+});
+
+// prefix admin routes with
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/{any_path}', 'HomeController@index');
+});
