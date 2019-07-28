@@ -12,6 +12,7 @@
 */
 
 use App\Http\Resources\User as UserResource;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/user', function () {
     return new UserResource(Auth::user());

@@ -15,7 +15,52 @@
     "consumes": [
         "application/x-www-form-urlencoded"
     ],
-    "paths": {},
+    "paths": {
+        "/api/auth/refresh": {
+            "patch": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Refresh user authorization token details using previous token",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "authorization token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "new authorization token"
+                    }
+                }
+            }
+        },
+        "/api/auth/invalidate": {
+            "delete": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Invalidate/Delete user authorization token using previous token",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "description": "authorization token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "success message"
+                    }
+                }
+            }
+        }
+    },
     "definitions": {},
     "externalDocs": {
         "description": "Find out more about Gage",
