@@ -145,7 +145,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                         <router-view></router-view>
+                        <router-view></router-view>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -178,7 +178,10 @@
     </footer>
 </div>
 <!-- ./wrapper -->
-
+<script>
+    window.GageUserJWTT = "{{$jwt_user_token}}"
+    window.GAGE_APP_BASE_URL = "{{url('')}}"
+</script>
 <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
