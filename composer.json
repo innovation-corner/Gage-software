@@ -9,17 +9,17 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "dingo/api": "^2",
         "fideloper/proxy": "^4.0",
+        "kepex/laravel-crud-generator": "^0.1.8",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "tymon/jwt-auth": "^1.0",
-        "dingo/api": "^2",
-        "zizaco/entrust": "^1.9",
-        "ext-openssl": "*",
-        "ext-json": "*"
+        "zizaco/entrust": "^1.9"
     },
     "require-dev": {
-        "appzcoder/crud-generator": "^3.0",
         "beyondcode/laravel-dump-server": "^1.0",
         "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
