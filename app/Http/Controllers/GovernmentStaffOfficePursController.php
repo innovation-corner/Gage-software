@@ -43,56 +43,6 @@ class GovernmentStaffOfficePursController extends Controller
             'model' => $government_staff_office_pur]);
     }
 
-    public function grid(Request $request)
-    {
-        $len = $_GET['length'];
-        $start = $_GET['start'];
-
-        $select = "SELECT *,1,2 ";
-        $presql = " FROM government_staff_office_purs a ";
-        if ($_GET['search']['value']) {
-            $presql .= " WHERE pur_user_id LIKE '%" . $_GET['search']['value'] . "%' ";
-        }
-
-        $presql .= "  ";
-
-        //------------------------------------
-        // 1/2/18 - Jasmine Robinson Added Orderby Section for the Grid Results
-        //------------------------------------
-        $orderby = "";
-        $columns = array('id', 'pur_user_id', 'rating_id', 'remark', 'government_staff_office_id', 'created_at', 'updated_at', 'deleted_at',);
-        $order = $columns[$request->input('order.0.column')];
-        $dir = $request->input('order.0.dir');
-        $orderby = "Order By " . $order . " " . $dir;
-
-        $sql = $select . $presql . $orderby . " LIMIT " . $start . "," . $len;
-        //------------------------------------
-
-        $qcount = DB::select("SELECT COUNT(a.id) c" . $presql);
-        //print_r($qcount);
-        $count = $qcount[0]->c;
-
-        $results = DB::select($sql);
-        $ret = [];
-        foreach ($results as $row) {
-            $r = [];
-            foreach ($row as $value) {
-                $r[] = $value;
-            }
-            $ret[] = $r;
-        }
-
-        $ret['data'] = $ret;
-        $ret['recordsTotal'] = $count;
-        $ret['iTotalDisplayRecords'] = $count;
-
-        $ret['recordsFiltered'] = count($ret);
-        $ret['draw'] = $_GET['draw'];
-
-        echo json_encode($ret);
-
-    }
-
 
     public function update(Request $request)
     {
